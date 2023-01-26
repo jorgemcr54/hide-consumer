@@ -7,8 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Mono;
 
+
 @Configuration
-public class ListenerEvent {
+public class ListenerConfig {
 
     @Value("${place.floor}")
     private int floor;
@@ -27,6 +28,10 @@ public class ListenerEvent {
                         System.out.println("NO ME ENCONTRARON");
                     }
                     return Mono.empty();
-                }, PlaceToHide.class);
+                }, PlaceToHide.class)
+                .handleCommand("player.eliminated", command ->{
+                    System.out.println("HE SIDO ELIMINAD@");
+                    return Mono.empty();
+                }, String.class);
     }
 }
