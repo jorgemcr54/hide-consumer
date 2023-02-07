@@ -32,6 +32,14 @@ public class ListenerConfig {
                 .handleCommand("player.eliminated", command ->{
                     System.out.println("HE SIDO ELIMINAD@");
                     return Mono.empty();
-                }, String.class);
+                }, String.class)
+                .serveQuery("player.searched.query", query ->{
+                    if (query.getRoom().equals(room) && query.getFloor() == floor){
+                        return Mono.just("Si estoy aca");
+                    }
+                    else{
+                        return Mono.just("No estoy aca");
+                    }
+                }, PlaceToHide.class);
     }
 }
