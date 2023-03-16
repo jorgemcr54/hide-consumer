@@ -16,6 +16,10 @@ dependencies {
 	implementation 'org.reactivecommons:async-commons-rabbit-starter:1.0.5'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'io.cloudevents:cloudevents-core:2.4.2'
+	implementation 'io.cloudevents:cloudevents-http-basic:2.4.2'
+	implementation 'io.cloudevents:cloudevents-json-jackson:2.4.2'
+	implementation 'io.cloudevents:cloudevents-spring:2.4.2'
 }
 
 tasks.named('test') {
